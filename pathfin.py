@@ -50,6 +50,8 @@ pkgnames = []
 for i in range(len(pkg2)):
     pkgnames.append(pkg2[i][0])
 
+#print('"""')
 for i in range (len(pkgnames)):
     print(pkgnames[i])
-    print(" path: " + pt2[i] + "/")
+    print(" path:" + " " + pt2[i] + "/")
+#print('"""')
