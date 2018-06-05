@@ -1,0 +1,19 @@
+
+	
+macro (show_args)
+#  set(multiValueArgs DEPENDENCIES)
+  message("${${}ARGV0}")
+  message("${${}ARGV}")
+endmacro()
+
+
+function (ROOT_STANDARD_LIBRARY_PACKAGE)
+  show_args()
+endfunction()
+
+
+ROOT_STANDARD_LIBRARY_PACKAGE(Genetic
+                              HEADERS Math/GeneticMinimizer.h
+                              DICTIONARY_OPTIONS "-writeEmptyRootPCM"
+                              DEPENDENCIES Core MathCore TMVA)
+
