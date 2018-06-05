@@ -1,0 +1,16 @@
+#cmake_host_system_information(RESULT osname QUERY )
+
+macro(ROOT_STANDARD_LIBRARY_PACKAGE)
+#  set(options OPTIONAL)
+  set(oneValueArgs DICTIONARY_OPTIONS)
+  set(multiValueArgs DEPENDENCIES )
+  cmake_parse_arguments("${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
+
+endmacro()
+
+ROOT_STANDARD_LIBRARY_PACKAGE(Genetic
+                              HEADERS Math/GeneticMinimizer.h
+                              DICTIONARY_OPTIONS "-writeEmptyRootPCM"
+                              DEPENDENCIES Core MathCore TMVA)
+
+message("${DEPENDENCIES}")
