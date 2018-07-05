@@ -1,0 +1,81 @@
+package: 
+ name: "IO"
+ tag: 0.0.0
+ targets:
+  target:
+   name: "IO"
+ products:
+  package:
+   name: IO
+ module: 
+  name: "RCastor"
+  packageurl: "https://github.com/root-project/io/castor"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/castor
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: Net;Core;RIO
+ module: 
+  name: "DCache"
+  packageurl: "https://github.com/root-project/io/dcache"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/dcache
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: Net;Core;RIO 
+ module: 
+  name: "GFAL"
+  packageurl: "https://github.com/root-project/io/gfal"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/gfal
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: Core;Net;RIO
+ module: 
+  name: "HDFS"
+  packageurl: "https://github.com/root-project/io/hdfs"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/hdfs
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: Core;Net;RIO
+ module: 
+  name: "RFIO"
+  packageurl: "https://github.com/root-project/io/rfio"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/rfio
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: Core;Net;RIO
+ module: 
+  name: "SQLIO"
+  packageurl: "https://github.com/root-project/io/sql"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/sql
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: Core;Net;RIO
+ module: 
+  name: "XMLIO"
+  packageurl: "https://github.com/root-project/io/xml"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/xml
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: RIO
+ module: 
+  name: "XMLParser"
+  packageurl: "https://github.com/root-project/io/xmlparser"
+  tag: 0.0.0
+  path: /home/ashwin/root/io/xmlparser
+  publicheaders: 
+  sources: no_sources
+  targets: 
+  deps: Core
