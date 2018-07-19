@@ -1,0 +1,9 @@
+module: 
+  name: Genetic
+  packageurl: "https://github.com/root-project/math/genetic"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/genetic
+  publicheaders: 
+  sources: no_sources
+  targets: Genetic
+  deps: Core;MathCore;TMVA

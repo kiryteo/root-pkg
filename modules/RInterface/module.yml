@@ -1,0 +1,9 @@
+module: 
+  name: RInterface
+  packageurl: "https://github.com/root-project/bindings/r"
+  tag: 0.0.0 
+  path: /home/ashwin/root/bindings/r
+  publicheaders: 
+  sources: no_sources
+  targets: RInterface
+  deps: Core;Matrix;Thread;RIO

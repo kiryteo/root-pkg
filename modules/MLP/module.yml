@@ -1,0 +1,11 @@
+module: 
+  name: MLP
+  packageurl: "https://github.com/root-project/math/mlp"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/mlp
+  publicheaders: 
+  sources: no_sources
+  targets: MLP
+  deps: Hist;Matrix;Tree;Graf;Gpad;TreePlayer;MathCore
+
+

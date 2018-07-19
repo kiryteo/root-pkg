@@ -1,0 +1,9 @@
+module: 
+  name: Matrix
+  packageurl: "https://github.com/root-project/math/matrix"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/matrix
+  publicheaders: 
+  sources: no_sources
+  targets: Matrix
+  deps: MathCore

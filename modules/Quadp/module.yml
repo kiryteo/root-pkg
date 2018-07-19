@@ -1,0 +1,9 @@
+module: 
+  name: Quadp
+  packageurl: "https://github.com/root-project/math/quadp"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/quadp
+  publicheaders: 
+  sources: no_sources
+  targets: Quadp
+  deps: Matrix

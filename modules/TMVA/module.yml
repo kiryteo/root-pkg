@@ -1,0 +1,9 @@
+module: 
+  name: TMVA
+  packageurl: "https://github.com/root-project/tmva/tmva"
+  tag: 0.0.0 
+  path: /home/ashwin/root/tmva/tmva
+  publicheaders: 
+  sources: no_sources
+  targets: TMVA
+  deps: Core;RIO;Hist;Tree;TreePlayer;MLP;Minuit;XMLIO

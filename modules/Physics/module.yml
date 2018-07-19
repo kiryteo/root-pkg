@@ -1,0 +1,9 @@
+module: 
+  name: Physics
+  packageurl: "https://github.com/root-project/math/physics"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/physics
+  publicheaders: 
+  sources: no_sources
+  targets: Physics
+  deps: Matrix;MathCore

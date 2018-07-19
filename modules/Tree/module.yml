@@ -1,0 +1,9 @@
+module: 
+  name: Tree
+  packageurl: "https://github.com/root-project/tree/tree"
+  tag: 0.0.0 
+  path: /home/ashwin/root/tree/tree
+  publicheaders: 
+  sources: no_sources
+  targets: Tree
+  deps: Net;RIO;Thread;Imt

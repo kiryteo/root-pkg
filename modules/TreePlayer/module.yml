@@ -1,0 +1,9 @@
+module: 
+  name: TreePlayer
+  packageurl: "https://github.com/root-project/tree/treeplayer"
+  tag: 0.0.0 
+  path: /home/ashwin/root/tree/treeplayer
+  publicheaders: 
+  sources: no_sources
+  targets: TreePlayer
+  deps: Tree;Graf3d;Graf;Hist;Gpad;RIO;MathCore

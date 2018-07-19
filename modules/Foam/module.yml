@@ -1,0 +1,9 @@
+module: 
+  name: Foam
+  packageurl: "https://github.com/root-project/math/foam"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/foam
+  publicheaders: 
+  sources: no_sources
+  targets: Foam
+  deps: Hist;MathCore

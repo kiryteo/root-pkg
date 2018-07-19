@@ -1,0 +1,9 @@
+module: 
+  name: ROOTVecOps
+  packageurl: "https://github.com/root-project/math/vecops"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/vecops
+  publicheaders: 
+  sources: no_sources
+  targets: ROOTVecOps
+  deps: Core

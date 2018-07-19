@@ -1,0 +1,9 @@
+module: 
+  name: Gpad
+  packageurl: "https://github.com/root-project/graf2d/gpad"
+  tag: 0.0.0 
+  path: /home/ashwin/root/graf2d/gpad
+  publicheaders: 
+  sources: no_sources
+  targets: Gpad
+  deps: Graf;Hist

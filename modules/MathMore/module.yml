@@ -1,0 +1,9 @@
+module: 
+  name: MathMore
+  packageurl: "https://github.com/root-project/math/mathmore"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/mathmore
+  publicheaders: 
+  sources: no_sources
+  targets: MathMore
+  deps: MathCore

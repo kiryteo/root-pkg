@@ -1,0 +1,9 @@
+module: 
+  name:  Thread
+  packageurl: "https://github.com/root-project/thread"
+  tag: 0.0.0 
+  path: /home/ashwin/root/core/thread
+  publicheaders: 
+  sources: TCondition.cxx;TConditionImp.cxx
+  targets: Thread
+  deps: Core

@@ -1,0 +1,9 @@
+module: 
+  name: MathCore
+  packageurl: "https://github.com/root-project/math/mathcore"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/mathcore
+  publicheaders: 
+  sources: no_sources
+  targets: MathCore
+  deps: Core;Imt

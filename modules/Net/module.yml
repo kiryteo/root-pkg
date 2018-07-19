@@ -1,0 +1,9 @@
+module: 
+  name: Net
+  packageurl: "https://github.com/root-project/net/net"
+  tag: 0.0.0 
+  path: /home/ashwin/root/net/net
+  publicheaders: 
+  sources: no_sources
+  targets: Net
+  deps: RIO

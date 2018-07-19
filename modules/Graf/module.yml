@@ -1,0 +1,9 @@
+module: 
+  name: Graf
+  packageurl: "https://github.com/root-project/graf2d/graf"
+  tag: 0.0.0 
+  path: /home/ashwin/root/graf2d/graf
+  publicheaders: 
+  sources: no_sources
+  targets: Graf
+  deps: Hist;Matrix;MathCore;RIO

@@ -1,0 +1,9 @@
+module: 
+  name: XMLIO
+  packageurl: "https://github.com/root-project/io/xml"
+  tag: 0.0.0 
+  path: /home/ashwin/root/io/xml
+  publicheaders: 
+  sources: no_sources
+  targets: XMLIO
+  deps: Core

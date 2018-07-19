@@ -1,0 +1,9 @@
+module: 
+  name: Minuit2
+  packageurl: "https://github.com/root-project/math/minuit2"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/minuit2
+  publicheaders: 
+  sources: no_sources
+  targets: Minuit2
+  deps: MathCore;Hist

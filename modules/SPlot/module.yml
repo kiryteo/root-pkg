@@ -1,0 +1,9 @@
+module: 
+  name: SPlot
+  packageurl: "https://github.com/root-project/math/splot"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/splot
+  publicheaders: 
+  sources: no_sources
+  targets: SPlot
+  deps: Matrix;Hist;Tree;TreePlayer;Graf3d;Graf;MathCore

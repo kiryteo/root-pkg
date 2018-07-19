@@ -1,0 +1,9 @@
+module: 
+  name: Hist
+  packageurl: "https://github.com/root-project/hist/hist"
+  tag: 0.0.0 
+  path: /home/ashwin/root/hist/hist
+  publicheaders: 
+  sources: no_sources
+  targets: Hist
+  deps: Matrix;MathCore;RIO

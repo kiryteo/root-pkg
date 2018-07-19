@@ -1,0 +1,9 @@
+module: 
+  name: Unuran
+  packageurl: "https://github.com/root-project/math/unuran"
+  tag: 0.0.0 
+  path: /home/ashwin/root/math/unuran
+  publicheaders: 
+  sources: no_sources
+  targets: Unuran
+  deps: Core;Hist;MathCore
