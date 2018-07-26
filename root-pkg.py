@@ -139,9 +139,6 @@ def check_module_path(pkg):
                     filepath = Path(dir_path + "/manifest.yml")
                     if filepath.is_file():
                         print("manifest file found. Checking manifest validity")
-                    #str1 = 'require \'yaml\';puts YAML.load_file(' + dir_path + '/manifest.yml' + ')'
-                    #supress = open(os.devnull, 'w')
-                    #k = subprocess.call(["ruby","-e", str1], stdout=supress, stderr=subprocess.STDOUT)
                         value = yaml_validator(dir_path)
                         if value == 1:
                             print("Not a valid yml. Please provide valid yml. Exiting now.")
