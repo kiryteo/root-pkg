@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import sys
 import os
+import glob
 import subprocess
 import json
 import re
 from difflib import get_close_matches
-from pathlib import Path
+from pathlib2 import Path
 from os.path import expanduser
 import yaml
 
@@ -52,19 +53,13 @@ def check_package_path(pkg):
     return src_dir_root
 
 def downloader(path):
-    rule_name = re.compile(".*name:.*")
-    rule_deps = re.compile(".*deps:.*")
     rule_url = re.compile(".*packageurl:.*")
 
     with open(path) as flmanifest:
         mread = flmanifest.read()
-        name = rule_name.findall(mread)
-        deps = rule_deps.findall(mread)
         url = rule_url.findall(mread)
         flmanifest.close()
 
-    parc_name = [x.lstrip(' name: ') for x in name]
-    parc_dep = [x.lstrip(' deps: ') for x in deps]
     parc_url = [x.lstrip(' packageurl: ') for x in url]
     d_url = parc_url[0].replace('"','')
 
@@ -72,9 +67,12 @@ def downloader(path):
 
     d = Downloader_request(d_url, path)
     d.download_github()
+    list_files = glob.iglob(path + "/*")
+    lt_file = max(list_files, key=os.path.getctime)
+    return lt_file
 
 def yaml_validator(dir_path):
-    validation = 'require \'yaml\';puts YAML.load_file(' + "'" + str(dir_path) + '/' + 'module.yml' + "'" + ')'
+    validation = 'require \'yaml\';puts YAML.load_file(' + "'" + str(dir_path) + "'" + ')'
     suppress = open(os.devnull, 'w')
     ret_val = subprocess.call(["ruby", "-e", validation], stdout=suppress, stderr=subprocess.STDOUT)
     return ret_val
@@ -96,71 +94,49 @@ def check_module_path(pkg):
             print("[root-get] We would use a module from {0:s}".format(src_dir_root))
         else:
             print("Package not present in rootbase.")
-            print("Please provide manifest path, else enter 'NA'")
-            p_manifest = input()
+            print("Please provide manifest file path, else enter 'NA'")
+            p_manifest = raw_input()
             if p_manifest != 'NA':
                 value = yaml_validator(p_manifest)
                 if value == 1:
                     print("Not a valid yml. Please provide valid yml. Exiting now.")
                 else:
                     print("Downloading package using url.")
-                    p_manifest = p_manifest.replace('manifest.yml','')
-                    downloader(p_manifest)
-                    dir_path = p_manifest
-                    filepath = Path(dir_path + "/CMakeLists.txt")
+                    dn_path = downloader(p_manifest)
+                #get path for downloaded directory
+                    filepath = Path(dn_path + "/CMakeLists.txt")
                     if filepath.is_file():
-                        src_dir_root = dir_path
+                        src_dir_root = dn_path
                     else:
-                        print("No CMakeLists.txt present. Looking for manifest.yml")
-                        filepath = Path(dir_path + "/manifest.yml")
-                        if filepath.is_file():
-                            print("manifest file found. Checking manifest validity")
-                            value = yaml_validator(dir_path)
-                            if value == 1:
-                                print("Not a valid yml. Please provide valid yml. Exiting now.")
-                            else:
-                                #call CMLcreator() and proceed install
-                        else:
-                            print("No manifest present. Please provide a manifest in package dir.")
-                    
-                    #yml check routine
-                            if value == 1:
-                                print("Not a valid yml. Please provide valid yml. Exiting now.")
-                            else:
-                                #call CMLcreator and proceed install 
+                        print("No CMakeLists.txt present. Creating using manifest.")
+                        rule_name = re.compile(".*name:.*")
+                        with open(p_manifest) as mn:
+                            read = mn.read()
+                            name = rule_name.findall(read)
+                        parc_name = [x.lstrip(' name: ') for x in name]
+                        cml = open(dn_path + "/CMakeLists.txt", 'a')
+                        cml.write("ROOT_STANDARD_LIBRARY_PACKAGE(" + parc_name[0] + " DEPENDENCIES RIO)")
+                        src_dir_root = dn_path
+
             else:
                 print("Can you provide package path..(if available)")
-                dir_path = input()
+                dir_path = raw_input()
                 filepath = Path(dir_path + "/CMakeLists.txt")
                 if filepath.is_file():
                     src_dir_root = dir_path
                 else:
-                    print("No CMakeLists.txt present. Looking for manifest.yml")
-                    filepath = Path(dir_path + "/manifest.yml")
-                    if filepath.is_file():
-                        print("manifest file found. Checking manifest validity")
-                        value = yaml_validator(dir_path)
-                        if value == 1:
-                            print("Not a valid yml. Please provide valid yml. Exiting now.")
-                        else:
-                            #call CMLcreator()
-                    else:
-                        print("No manifest present. Please provide a manifest in package dir.")
-                    
-                    #yml check routine
-                        if value == 1:
-                            print("Not a valid yml. Please provide valid yml. Exiting now.")
-                        else:
-                            #call CMLcreator 
+                    print("No CMakeLists.txt present. Exiting now.")
+                    rule_name = re.compile(".*name:.*")
+                    with open(p_manifest) as mn:
+                        read = mn.read()
+                        name = rule_name.findall(read)
+                    parc_name = [x.lstrip(' name: ') for x in name]
+                    cml = open(dn_path + "/CMakeLists.txt", 'a')
+                    cml.write("ROOT_STANDARD_LIBRARY_PACKAGE(" + parc_name[0] + " DEPENDENCIES RIO)")
+                    src_dir_root = dn_path
 
-            src_dir_root = sd
             print("[root-get] We would use a module from {0:s}".format(src_dir_root))
     return src_dir_root
-
-            print("Package not present in rootbase.\nPlease provide package path")
-            dir_path = input()
-            
-            
 
 def analizer_package(pkg, src_dir_root):
     """ Extention of package/module CMake files out of existing in ROOT
