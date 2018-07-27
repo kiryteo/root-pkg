@@ -125,7 +125,7 @@ def check_module_path(pkg):
                 if filepath.is_file():
                     src_dir_root = dir_path
                 else:
-                    print("No CMakeLists.txt present. Exiting now.")
+                    print("No CMakeLists.txt present. Creating using manifest.")
                     rule_name = re.compile(".*name:.*")
                     with open(p_manifest) as mn:
                         read = mn.read()
